@@ -1,0 +1,97 @@
+:root {
+  color-scheme: dark;
+  --bg: #111214;
+  --surface: #1a1c1f;
+  --surface-alt: #202328;
+  --text: #e9ebef;
+  --muted: #a7adb7;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #1b1d21 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.app-shell { max-width: 1180px; margin: 0 auto; padding: 1rem; }
+.top-nav {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border);
+  background: rgba(26, 28, 31, 0.88);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+.brand { font-size: .95rem; letter-spacing: .16em; font-weight: 700; }
+.content { display: grid; gap: 1rem; margin-top: 1rem; }
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(32, 35, 40, 0.95), rgba(24, 26, 29, 0.96));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+h1, h2, h3 { margin: 0 0 .75rem; }
+h3 { font-size: 1rem; }
+
+.step-grid { display: grid; grid-template-columns: 1fr; gap: .8rem; }
+.control-group { display: grid; gap: .45rem; }
+.control-group > span { color: var(--muted); font-size: .86rem; }
+select {
+  width: 100%;
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .72rem;
+  white-space: normal;
+  text-overflow: clip;
+}
+option { white-space: normal; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: .55rem; }
+.compare-button {
+  background: #2d323a;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .62rem .9rem;
+  cursor: pointer;
+}
+.compare-button:disabled { opacity: .55; cursor: not-allowed; }
+
+.comparison-cards,
+.split-grid,
+.feature-grid { display: grid; gap: .8rem; grid-template-columns: 1fr; }
+.item-card,
+.sub-panel,
+.feature-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(31, 34, 39, .7);
+  padding: .8rem;
+}
+.item-card h3,
+.feature-card h3 {
+  font-size: .95rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.item-card p,
+.sub-panel p,
+.feature-card p { margin: .3rem 0; color: var(--muted); }
+ul { margin: 0; padding-left: 1.1rem; }
+li { margin: .28rem 0; color: var(--muted); }
+.master-panel p:first-of-type { color: var(--text); font-weight: 600; overflow-wrap: anywhere; }
+
+@media (min-width: 860px) {
+  .step-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .comparison-cards,
+  .split-grid,
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
