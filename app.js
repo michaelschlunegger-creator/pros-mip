@@ -138,12 +138,13 @@ function App() {
   return (
     <div className="app-shell">
       <header className="top-nav">
-        <div className="brand">PROSOL MIP</div>
+        <div className="brand">CODA PROSOL MIP</div>
       </header>
 
       <main className="content">
         <section className="panel">
-          <h1>Duplicate Resolution Simulator</h1>
+          <h1>CODA PROSOL MIP – Duplicate Resolution Simulator</h1>
+
           <div className="step-grid">
             <label className="control-group">
               <span>Step A — Category</span>
@@ -168,8 +169,11 @@ function App() {
               </select>
             </label>
           </div>
+
           <div className="action-row" style={{ marginTop: '.8rem' }}>
-            <button onClick={onCompare} disabled={!itemA || !itemB || aId === bId}>Step C — Compare</button>
+            <button onClick={onCompare} disabled={!itemA || !itemB || aId === bId}>
+              Step C — Compare
+            </button>
           </div>
         </section>
 
@@ -194,38 +198,11 @@ function App() {
               </article>
             </div>
 
-            <div className="cards" style={{ marginTop: '.8rem' }}>
-              <article className="list-box ok">
-                <h3>What is identical</h3>
-                <ul>{result.identical.map((v) => <li key={v}>{v}</li>)}</ul>
-              </article>
-              <article className="list-box bad">
-                <h3>What differs</h3>
-                <ul>{result.different.map((v) => <li key={v}>{v}</li>)}</ul>
-              </article>
-            </div>
-
             <article className="card recommend" style={{ marginTop: '.8rem' }}>
               <h3>Recommendation summary</h3>
               <p>{result.recommendation}</p>
               <p><strong>Risk notes:</strong> {result.riskNotes.join(' | ')}</p>
-              {result.pair && <p><strong>Precomputed pair match:</strong> {result.pair.pairId} ({Math.round(result.pair.similarity * 100)}%)</p>}
             </article>
-
-            <details style={{ marginTop: '.8rem' }} open>
-              <summary>PROSOL Value-Added Intelligence Service</summary>
-              <div className="feature-grid">
-                {result.modules.map((m) => (
-                  <article className="feature-card" key={m.title}>
-                    <h4>{m.title}</h4>
-                    <p><strong>What is identical:</strong> {m.identical}</p>
-                    <p><strong>What differs:</strong> {m.differs}</p>
-                    <p><strong>Business impact:</strong> {m.impact}</p>
-                    <p><strong>Recommended action:</strong> {m.action}</p>
-                  </article>
-                ))}
-              </div>
-            </details>
           </section>
         )}
       </main>
